@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/ej1.js"></script>
+    <title>Arrays</title>
+</head>
+<body class="container">
+    <header class="main_menu">
+        <h1>Arrays unidimensionales</h1>
+    </header>
+    <main class="content">
+        <section class="enunciados">
+            <header>
+                <h2>Ejercicios</h2>
+            </header>
+            <ol>
+                <li>
+                    Crea un array de números donde le indicamos por teclado el tamaño del array, rellenaremos el array con números, al final muestra por pantalla el valor de cada posición y la suma de todos los valores.
+                    <div>
+                        Recuerda que para capturar un evento hay que almacenarla en una variable. Posteriormente utilizaremos el método <strong>preventDefault()</strong> del evento que <em>cancela el evento si este es cancelable</em>.
+                        <code>document.querySelector("#ej1").addEventListener("click",e=>{
+                                e.preventDefault();
+                                //el resto del código aquí
+                            });</code>
+                    </div>
+                </li>
+                <li>
+                    Crea un array de números de un tamaño pasado por teclado, el array contendrá números aleatorios, por último nos indica cual es el mayor de todos.
+                </li>
+                <li>Modifica el ejercicio anterior pero utilizando números aleatorios. Puede que te interese esta función:
+                    <code>
+                        // Retorna un entero aleatorio entre min (incluido) y max (excluido)
+                        // ¡Usando Math.round() te dará una distribución no-uniforme!
+                        function getRandomInt(min, max) {
+                          return Math.floor(Math.random() * (max - min)) + min;
+                        }</code>
+                </li>
+                <li>
+                    Pide al usuario por teclado una frase y pasa sus caracteres a un array de caracteres. Puedes utilizar métodos  o no de String.
+                    <ul>
+                        <li>charAt()</li>
+                        <li>push()</li>
+                    </ul>
+                </li>
+                <li>
+                    Calcula la letra de un DNI, pediremos el DNI por teclado y nos devolverá el DNI completo. 
+                    <code>
+                        Para calcular la letra, cogeremos el resto de dividir nuestro DNI entre 23, el resultado debe estar entre 0 y 22. 
+                    </code>
+                    Haz un método donde según el resultado de la anterior formula busque en un array de caracteres la posición que corresponda a la letra. 
+                    <code>
+                        Por ejemplo si escribimos: 32670089 
+                        nos devolverá: 32670089S
+                    </code>
+                    Esta es la tabla de caracteres: 
+                    <img src="images/letra-dni.jpg" alt="">
+                </li>
+            </ol>
+        </section>
+        <section class="ejercicios">
+            <header>
+                <h2>Ejercicios</h2>
+            </header>
+            <ol>
+                <li><a id="ej1" href="#">Ejercicio 1</a></li>
+                <li><a id="ej2" href="#">Ejercicio 2</a></li>
+                <li><a id="ej3" href="#">Ejercicio 3</a></li>
+                <li><a id="ej4" href="#">Ejercicio 4</a></li>
+                <li><a id="ej5" href="#">Ejercicio 5</a></li>
+            </ol>
+        </section>
+    </main>
+    <footer class="main_footer">
+        &copy;Webferrol
+    </footer>
+</body>
+</html>

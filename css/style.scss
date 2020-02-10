@@ -1,0 +1,119 @@
+
+@font-face{
+    font-family: Inconsolata-Regular;
+    src: url(../fonts/Inconsolata-Regular.ttf);
+}
+@font-face{
+    font-family: Inconsolata-Bold;
+    src: url(../fonts/Inconsolata-Bold.ttf);
+}
+
+:root{
+    font-family: Inconsolata-Regular, monospace;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+.container{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    .main_menu, .main_footer{
+        padding: 1.5em;
+        background-color: black;
+        color: white;
+    }
+    .main_menu{
+        h1{
+            margin: 0;
+            font-family: Inconsolata-Bold;
+        }
+    }
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        padding: .5em;
+        .enunciados,.ejercicios{
+            /*valores por defecto*/
+            flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: auto;
+            /*Atajo y en este orde*/
+            flex: 0 1 auto;
+            /*voy a cambiar alguna cosilla*/
+            width: calc( 50% - 1em );
+            min-width: 300px;
+            padding: .5em;
+            h2{
+                font-family: Inconsolata-Bold;
+            }
+        }
+        background-color: rgb(209, 175, 64);
+    }
+    .enunciados{   
+        hyphens: auto;
+        ol{
+            list-style-type: none;
+            counter-reset: contador-principal;
+            & > li{
+                counter-increment: contador-principal;
+                &::before{
+                    content: counter(contador-principal) "- ";
+                    font-weight: bold;
+                }
+            }
+        }
+        ol > li > ul{
+            counter-reset: contador;
+            & > li{
+                list-style-type: none;
+                counter-increment: contador 1;
+                &::before{
+                    content: counter(contador,lower-roman) ". ";
+                    display: inline-block;
+                    min-width: 2em;
+                }
+            }
+        }
+
+        code{
+            background-color: rgba(grey,.5);
+            hyphens: initial;
+            white-space: pre-line;
+        }
+
+        img{
+            width: 100%;
+            max-width: 1300px;
+            object-fit: cover;
+        }
+    }
+    .ejercicios{
+        
+        a{
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            text-shadow: black 1px 1px;
+            &:hover{ 
+                position: relative;              
+                text-shadow: black 1px 1px;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    box-shadow: 0 0 2px 1px black;
+                }
+
+            }
+            &:active{
+                color: rgb(228, 135, 135);
+            }           
+        }
+       
+    }
+}

@@ -1,0 +1,149 @@
+@font-face {
+  font-family: Inconsolata-Regular;
+  src: url(../fonts/Inconsolata-Regular.ttf);
+}
+
+@font-face {
+  font-family: Inconsolata-Bold;
+  src: url(../fonts/Inconsolata-Bold.ttf);
+}
+
+:root {
+  font-family: Inconsolata-Regular, monospace;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.container .main_menu, .container .main_footer {
+  padding: 1.5em;
+  background-color: black;
+  color: white;
+}
+
+.container .main_menu h1 {
+  margin: 0;
+  font-family: Inconsolata-Bold;
+}
+
+.container .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: .5em;
+  background-color: #d1af40;
+}
+
+.container .content .enunciados, .container .content .ejercicios {
+  /*valores por defecto*/
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  /*Atajo y en este orde*/
+  -ms-flex: 0 1 auto;
+      flex: 0 1 auto;
+  /*voy a cambiar alguna cosilla*/
+  width: calc( 50% - 1em);
+  min-width: 300px;
+  padding: .5em;
+}
+
+.container .content .enunciados h2, .container .content .ejercicios h2 {
+  font-family: Inconsolata-Bold;
+}
+
+.container .enunciados {
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+}
+
+.container .enunciados ol {
+  list-style-type: none;
+  counter-reset: contador-principal;
+}
+
+.container .enunciados ol > li {
+  counter-increment: contador-principal;
+}
+
+.container .enunciados ol > li::before {
+  content: counter(contador-principal) "- ";
+  font-weight: bold;
+}
+
+.container .enunciados ol > li > ul {
+  counter-reset: contador;
+}
+
+.container .enunciados ol > li > ul > li {
+  list-style-type: none;
+  counter-increment: contador 1;
+}
+
+.container .enunciados ol > li > ul > li::before {
+  content: counter(contador, lower-roman) ". ";
+  display: inline-block;
+  min-width: 2em;
+}
+
+.container .enunciados code {
+  background-color: rgba(128, 128, 128, 0.5);
+  -webkit-hyphens: initial;
+      -ms-hyphens: initial;
+          hyphens: initial;
+  white-space: pre-line;
+}
+
+.container .enunciados img {
+  width: 100%;
+  max-width: 1300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.container .ejercicios a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  text-shadow: black 1px 1px;
+}
+
+.container .ejercicios a:hover {
+  position: relative;
+  text-shadow: black 1px 1px;
+}
+
+.container .ejercicios a:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  -webkit-box-shadow: 0 0 2px 1px black;
+          box-shadow: 0 0 2px 1px black;
+}
+
+.container .ejercicios a:active {
+  color: #e48787;
+}
+/*# sourceMappingURL=style.css.map */
